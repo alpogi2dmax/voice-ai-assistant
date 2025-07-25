@@ -29,7 +29,7 @@ export default function App() {
       formData.append('audio', file)
 
       try {
-        const response = await fetch('http://localhost:5000/api/voice', {
+        const response = await fetch('https://voice-ai-assistant-p33u.onrender.com/api/voice', {
           method: 'POST',
           body: formData,
         })
@@ -39,7 +39,7 @@ export default function App() {
         setReply(data.reply)
 
         if (data.audioUrl && audioRef.current) {
-          audioRef.current.src = `http://localhost:5000${data.audioUrl}`
+          audioRef.current.src = `https://voice-ai-assistant-p33u.onrender.com${data.audioUrl}`
           audioRef.current.play()
         }
       } catch (err) {
